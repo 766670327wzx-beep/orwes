@@ -25,7 +25,12 @@ Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dov
 - Node.js version 22.x or 24.x
 
 ```bash
-npm create @shopify/hydrogen@latest
+npm ci
+# Once per fresh clone, create a local development session secret.
+if [ ! -f .env ]; then
+  printf "SESSION_SECRET=%s\n" "$(openssl rand -hex 32)" > .env
+fi
+npm run dev
 ```
 
 ## Building for production
