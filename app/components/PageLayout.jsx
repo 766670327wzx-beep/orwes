@@ -1,8 +1,8 @@
 import {Await, Link} from 'react-router';
 import {Suspense, useId} from 'react';
 import {Aside} from '~/components/Aside';
-import {Footer} from '~/components/Footer';
-import {Header, HeaderMenu} from '~/components/Header';
+import {PrintHeader, PrintFooter} from '~/components/PrintShop';
+import {HeaderMenu} from '~/components/Header';
 import {CartMain} from '~/components/CartMain';
 import {
   SEARCH_ENDPOINT,
@@ -13,33 +13,15 @@ import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
 /**
  * @param {PageLayoutProps}
  */
-export function PageLayout({
-  cart,
-  children = null,
-  footer,
-  header,
-  isLoggedIn,
-  publicStoreDomain,
-}) {
+export function PageLayout({cart, children = null, header, publicStoreDomain}) {
   return (
     <Aside.Provider>
       <CartAside cart={cart} />
       <SearchAside />
       <MobileMenuAside header={header} publicStoreDomain={publicStoreDomain} />
-      {header && (
-        <Header
-          header={header}
-          cart={cart}
-          isLoggedIn={isLoggedIn}
-          publicStoreDomain={publicStoreDomain}
-        />
-      )}
+      <PrintHeader />
       <main>{children}</main>
-      <Footer
-        footer={footer}
-        header={header}
-        publicStoreDomain={publicStoreDomain}
-      />
+      <PrintFooter />
     </Aside.Provider>
   );
 }
