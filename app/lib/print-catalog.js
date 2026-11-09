@@ -2,7 +2,7 @@ export const printGroups = [
   {
     id: 'uv',
     name: 'UV DTF stickers',
-    banner: 'uv-banner',
+    cover: 'wrap',
     intro: 'Transfers for glass, ceramics and other smooth, rigid surfaces.',
     items: [
       ['uv-builder', 'UV DTF sheet builder'],
@@ -14,7 +14,7 @@ export const printGroups = [
   {
     id: 'dtf',
     name: 'DTF heat transfers',
-    banner: 'dtf-banner',
+    cover: 'premade',
     intro:
       'Explore heat-applied graphics for clothing, bags and fabric accessories.',
     items: [
@@ -27,7 +27,7 @@ export const printGroups = [
   {
     id: 'labels',
     name: 'Premium labels',
-    banner: 'label-banner',
+    cover: 'gloss',
     intro: 'Explore tactile finishes and metallic accents for packaging.',
     items: [
       ['gloss', 'Raised gloss labels'],
@@ -37,7 +37,7 @@ export const printGroups = [
   {
     id: 'stickers',
     name: 'Everyday stickers',
-    banner: 'sticker-banner',
+    cover: 'paper',
     intro: 'Compare finishes for bottles, mailers and everyday packaging.',
     items: [
       ['paper', 'Paper stickers'],
@@ -49,6 +49,7 @@ export const printGroups = [
   },
   {
     id: 'merch',
+    cover: 'tote',
     name: 'Custom merch',
     intro: 'Explore personalised gifts and accessories.',
     items: [

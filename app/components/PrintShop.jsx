@@ -56,14 +56,6 @@ export function PrintFooter() {
 export function PrintGroup({group}) {
   return (
     <section id={group.id} className="print-group">
-      {group.banner && (
-        <img
-          className="print-banner"
-          src={photo(group.banner)}
-          loading="lazy"
-          alt={group.intro}
-        />
-      )}
       <div className="print-section-title">
         <div>
           <h2>{group.name}</h2>

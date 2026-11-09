@@ -10,33 +10,38 @@ export default function Homepage() {
       <section className="print-hero">
         <div className="print-copy">
           <h1>
-            Custom stickers,
-            <br />
-            transfers &amp; labels<span>.</span>
+            Custom stickers, transfers &amp; <em>labels.</em>
           </h1>
           <p>
             Explore print finishes for your packaging, apparel and merchandise.
           </p>
-          <a href="#uv" className="print-btn">
-            Browse print options ↗
+          <a href="#print-formats" className="print-btn">
+            Explore print formats ↓
           </a>
         </div>
-        <div className="print-hero-art">
-          <img src={photo('foil')} alt="Metallic label samples" />
-          <img src={photo('wrap')} alt="Floral cup wrap designs" />
-          <img src={photo('paper')} alt="Paper labels on packaging" />
-        </div>
+        <Link className="print-hero-art" to="/print/foil">
+          <img
+            src={photo('foil')}
+            alt="Sheet of holographic foil labels"
+            fetchPriority="high"
+          />
+          <span>
+            Metallic foil labels <b aria-hidden="true">↗</b>
+          </span>
+        </Link>
       </section>
-      <div className="print-intro">
-        <h2>Find your print format</h2>
-        <nav>
+      <section className="print-intro" id="print-formats">
+        <h2>Shop by print format</h2>
+        <nav aria-label="Jump to a print format">
           {printGroups.map((g) => (
             <a key={g.id} href={'#' + g.id}>
-              {g.name} ↓
+              <img src={photo(g.cover)} alt="" loading="lazy" />
+              <span>{g.name}</span>
+              <b aria-hidden="true">↓</b>
             </a>
           ))}
         </nav>
-      </div>
+      </section>
       {printGroups.map((g) => (
         <PrintGroup group={g} key={g.id} />
       ))}
