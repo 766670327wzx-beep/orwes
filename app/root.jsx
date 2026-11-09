@@ -1,6 +1,7 @@
 import {Analytics, getShopAnalytics, useNonce} from '@shopify/hydrogen';
 import {
   Outlet,
+  useLocation,
   useRouteError,
   isRouteErrorResponse,
   Links,
@@ -167,6 +168,7 @@ export function Layout({children}) {
 export default function App() {
   /** @type {RootLoader} */
   const data = useRouteLoaderData('root');
+  const isHome = useLocation().pathname === '/';
 
   if (!data) {
     return <Outlet />;
@@ -178,9 +180,13 @@ export default function App() {
       shop={data.shop}
       consent={data.consent}
     >
-      <PageLayout {...data}>
+      {isHome ? (
         <Outlet />
-      </PageLayout>
+      ) : (
+        <PageLayout {...data}>
+          <Outlet />
+        </PageLayout>
+      )}
     </Analytics.Provider>
   );
 }
