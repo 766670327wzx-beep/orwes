@@ -439,3 +439,51 @@ main:has(.print-home) {
     display: grid;
   }
 }
+.art-paths {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+.art-paths a {
+  padding: 10px 14px;
+  border: 1px solid #b7c8c1;
+  border-radius: 20px;
+  font-size: 14px;
+}
+.art-paths [aria-current='page'] {
+  background: #183c31;
+  color: white;
+}
+.art-check {
+  margin-top: 18px;
+  padding: clamp(16px, 2vw, 28px);
+  background: #f1f6f2;
+  border-radius: 12px;
+}
+.art-check h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.art-check label {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0;
+  font-weight: 600;
+}
+.art-check small {
+  font-weight: 400;
+  color: #485b52;
+}
+.art-check input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  background: white;
+  border: 1px solid #a9bbb1;
+  border-radius: 5px;
+  padding: 9px;
+}
+.art-check [aria-live] {
+  overflow-wrap: anywhere;
+}

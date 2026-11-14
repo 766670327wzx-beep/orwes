@@ -1,6 +1,7 @@
 import {Link, useLoaderData} from 'react-router';
 import {printGroups, photo} from '~/lib/print-catalog';
 import {ProductItem} from '~/components/ProductItem';
+import {ArtworkCheck} from '~/components/ArtworkCheck';
 import {SheetPlanner} from '~/components/SheetPlanner';
 export async function loader({params, context}) {
   const group = printGroups.find((g) =>
@@ -34,8 +35,26 @@ export default function PrintFormat() {
         <div>
           <h1>{name}</h1>
           <p>{group.intro}</p>
+          {['uv', 'dtf'].includes(group.id) && (
+            <nav className="art-paths" aria-label="Artwork options">
+              <Link
+                aria-current={id === group.id + '-builder' ? 'page' : undefined}
+                to={'/print/' + group.id + '-builder'}
+              >
+                Build a sheet
+              </Link>
+              <Link
+                aria-current={id === group.id + '-upload' ? 'page' : undefined}
+                to={'/print/' + group.id + '-upload'}
+              >
+                Check a ready-made sheet
+              </Link>
+            </nav>
+          )}
           {id.endsWith('builder') ? (
-            <SheetPlanner />
+            <SheetPlanner key={id} />
+          ) : id.endsWith('-upload') ? (
+            <ArtworkCheck key={id} />
           ) : (
             <a className="print-btn" href="#available">
               View available products ↓

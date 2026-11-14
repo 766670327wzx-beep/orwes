@@ -13,7 +13,8 @@ export default function Homepage() {
             Custom stickers, transfers &amp; <em>labels.</em>
           </h1>
           <p>
-            Explore print finishes for your packaging, apparel and merchandise.
+            Choose UV DTF stickers for glass and packaging, or DTF transfers for
+            apparel.
           </p>
           <a href="#print-formats" className="print-btn">
             Explore print formats ↓
